@@ -57,7 +57,7 @@ pipeline {
                     <p>Check console output at <a href="${BUILD_URL}">this link</a> to view the results.</p>
                 """,
                 subject: "Build # ${BUILD_NUMBER} - ${JOB_NAME} - ${env.BUILD_STATUS}",
-                to: 'yimikacreations@gmail.com'
+                to: 'aroyewunbimbola@gmail.com'
             )
         }
     }
