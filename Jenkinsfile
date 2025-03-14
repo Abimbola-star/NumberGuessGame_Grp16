@@ -50,18 +50,14 @@ pipeline {
     post {
         always {
             emailext(
-                body: "Check console output at ${BUILD_URL} to view the results.",
-                subject: "${PROJECT_NAME} - Build # ${BUILD_NUMBER} - ${BUILD_STATUS}!",
+                body: """
+                    <h3>Build Notification</h3>
+                    <p>Build <strong>${BUILD_NUMBER}</strong> of <strong>${JOB_NAME}</strong> finished with status: <strong>${BUILD_STATUS}</strong></p>
+                    <p>Check console output at <a href="${BUILD_URL}">this link</a> to view the results.</p>
+                """,
+                subject: "Build # ${BUILD_NUMBER} - ${JOB_NAME} - ${BUILD_STATUS}",
                 to: 'yimikacreations@gmail.com'
             )
         }
     }
-
-    // post {
-    //     always {
-    //         emailext body: 'Check console output at $BUILD_URL to view the results.',
-    //         subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!',
-    //         to: 'ayoyinka.zapier@gmail.com'
-    //     }
-    // }
 }
